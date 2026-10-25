@@ -1,0 +1,132 @@
+
+/* ---------- COLOR PALETTE ---------- */
+@define-color glass       rgba(24, 29, 48, 0.50);
+@define-color glass_hover rgba(52, 65, 94, 0.72);
+@define-color border     rgba(210, 205, 255, 0.18);
+@define-color text       #e8e6f5;
+@define-color muted      #b9b5cc;
+@define-color accent     #c4b5fd;
+@define-color warning    #f6c177;
+@define-color critical   #f38ba8;
+
+/* ---------- GLOBAL ---------- */
+* {
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+    font-size: 16px;
+    font-weight: 900;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+/* The bar window itself stays transparent. */
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+/* Keep the three module containers invisible. */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+}
+
+/* ---------- FLOATING PILLS ---------- */
+
+#clock,
+#network,
+#pulseaudio,
+#battery {
+    background: @glass;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 200px;
+}
+
+/* ---------- WORKSPACES ---------- */
+
+#workspaces {
+    background: @glass;
+    padding: 10px 10px;
+    font-weight: bold;
+    border-radius: 200px;
+}
+
+#workspaces button {
+    color: #F78CCB;
+    background: transparent;
+    border-radius: 999px;
+    padding: 5px 8px;
+    font-weight: bold;
+}
+
+#workspaces button.active {
+    color: #191827;
+    background: @text;
+}
+
+#workspaces button:hover {
+    color: #DCEBFF;
+    background: @glass_hover;
+}
+
+/* ---------- ARCH ---------- */
+
+#custom-arch {
+    background-color: @glass;
+    color: #6478FF;
+    padding: 10px 20px;
+    margin: 4px 4px 4px 4px;
+    border-radius: 25px;
+    font-size: 25px;
+}
+
+/* ---------- CLOCK ---------- */
+#clock {
+    color: #FBBA76;
+}
+
+/* ---------- AUDIO ---------- */
+#pulseaudio {
+    color: #6478FF;
+}
+
+#pulseaudio.muted {
+    color: @muted;
+}
+
+/* ---------- NETWORK ---------- */
+#network {
+    color: #F78CCB;
+}
+
+#network.disconnected {
+    color: @critical;
+}
+
+/* ---------- BATTERY ---------- */
+#battery {
+    color: #71D999;
+}
+
+#battery.warning {
+    color: #D9DF36;
+}
+
+#battery.critical:not(.charging) {
+    color: @critical;
+}
+
+#battery.charging {
+    color: #94E2A5;
+}
+
+/* ---------- HOVER EFFECT ---------- */
+#clock:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover,
+#custom-arch:hover{
+    background: @glass_hover;
+}
